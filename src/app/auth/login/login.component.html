@@ -1,16 +1,28 @@
 <div class="main">
-   <div class="login">
-    <h1 class="h1text">Login</h1>
-    <form action="" class="form">
-        <input class="input" type="text" placeholder="Email">
-        <input class="input" type="text" placeholder="Password">
-        <button class="btn">Log in</button>
-        <button class="btn">Google</button>
+    <div class="login">
+      <h3 class="h1text">Login</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="form">
+        <input class="input" type="text" formControlName="email" placeholder="Email">
+        <div *ngIf="isInValid || loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+          <small class="error" *ngIf="loginForm.controls['email'].hasError('required')">Email is required.</small>
+          <small class="error" *ngIf="loginForm.controls['email'].hasError('email')">Please enter a valid email address.</small>
+        </div>
+  
+        <input class="input" type="password" formControlName="password" placeholder="Password">
+        <div *ngIf="isInValid || loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+          <small class="error" *ngIf="loginForm.controls['password'].hasError('required')">Password is required.</small>
+          <small class="error" *ngIf="loginForm.controls['password'].hasError('minlength')">Password must be at least 8 characters long.</small>
+        </div>
+  
+        <button class="btn" type="submit">Log in</button>
+        <button class="btn" type="button">Google</button>
         <a class="link" routerLink="/register">
-            <p >Don't have an account?</p>
+          <p>Don't have an account?</p>
         </a>
-    </form>
-   </div>
-</div>
+      </form>
+    </div>
+  </div>
+  
 
 <router-outlet></router-outlet>
+

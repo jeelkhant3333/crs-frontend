@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="login">
+      <h3 class="h1text">Verify OTP</h3>
+      <form [formGroup]="otpForm" class="form">
+        <input class="input" type="number" formControlName="otp" placeholder="Enter OTP Here">
+        <div *ngIf="isInValid || otpForm.controls['otp'].invalid && (otpForm.controls['otp'].dirty || otpForm.controls['otp'].touched)">
+          <small class="error" *ngIf="otpForm.controls['otp'].hasError('required')">otp is required.</small>
+          <small class="error" *ngIf="otpForm.controls['otp'].hasError('maxLength')">Please enter a valid otp.</small>
+          <small class="error" *ngIf="otpForm.controls['otp'].hasError('minLength')">Please enter a valid otp.</small>
+        </div>
+        <button class="btn" type="submit">Varify</button>
+        <button class="btn" type="button">Resend</button>
+      </form>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>

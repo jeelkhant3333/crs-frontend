@@ -1,18 +1,52 @@
 <div class="main">
-    <div class="resgister">
-     <h1 class="h1text">Register</h1>
-     <form action="" class="form">
-         <input class="input" type="text" placeholder="Frist Name">
-         <input class="input" type="text" placeholder="Last Name">
-         <input class="input" type="text" placeholder="Email">
-         <input class="input" type="text" placeholder="Password">
-         <button class="btn">Register</button>
-         <a class="link" routerLink="/login">
-             <p>Already have an account?</p>
-         </a>
-     </form>
+    <div class="register">
+        <h3 class="h1text">Register</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="form">
+
+
+            <input class="input" type="text" placeholder="Frist Name" formControlName="firstName">
+            <div
+                *ngIf="isInValid || registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)">
+                <small class="error" *ngIf="registerForm.controls['firstName'].hasError('required')">
+                    First Name is required.</small>
+            </div>
+
+
+            <input class="input" type="text" placeholder="Last Name" formControlName="lastName">
+            <div
+                *ngIf="isInValid || registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+                <small class="error" *ngIf="registerForm.controls['lastName'].hasError('required')">
+                    Last Name is required.</small>
+            </div>
+
+
+            <input class="input" type="text" formControlName="email" placeholder="Email">
+            <div
+                *ngIf="isInValid || registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                <small class="error" *ngIf="registerForm.controls['email'].hasError('required')">Email is
+                    required.</small>
+                <small class="error" *ngIf="registerForm.controls['email'].hasError('email')">Please enter a valid email
+                    address.</small>
+            </div>
+
+
+
+            <input class="input" type="password" formControlName="password" placeholder="Password">
+            <div
+                *ngIf="isInValid || registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                <small class="error" *ngIf="registerForm.controls['password'].hasError('required')">Password is
+                    required.</small>
+                <small class="error" *ngIf="registerForm.controls['password'].hasError('minlength')">Password must be at
+                    least 8 characters long.</small>
+            </div>
+
+
+            <button class="btn" type="submit">Register</button>
+            <a class="link" routerLink="/login">
+                <p>Already have an account?</p>
+            </a>
+        </form>
     </div>
- </div>
- 
- <router-outlet></router-outlet>
- 
+</div>
+
+<router-outlet></router-outlet>
