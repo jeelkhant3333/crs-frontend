@@ -1,4 +1,48 @@
+<!-- Navbar for all conditions -->
 <div class="nav">
-    <!-- <img src="../../../assets/logo.png" alt="Logo"> -->
-    <span class="title">Car Rental Service</span>
+
+
+    <!-- Before Login -->
+    <ng-container *ngIf="!isLogin; else loggedIn">
+        <div>
+            <span class="title">Car Rental Service</span>
+        </div>
+    </ng-container>
+
+
+
+    <!-- Logged In -->
+    <ng-template #loggedIn>
+
+
+        <!-- Admin navbar -->
+        <ng-container *ngIf="isAdmin; else userNavbar">
+            <div>
+                <span class="title">Welcome Admin!</span>
+            </div>
+            <nav>
+                <a class="nav-links" routerLink="/admin/dashboard"><span>Dashboard</span></a>
+                <a class="nav-links" routerLink="/admin/add-car"><span>Add New Car</span></a>
+                <a class="nav-links" routerLink="/admin/bookings"><span>Bookings</span></a>
+            </nav>
+        </ng-container>
+
+
+
+        <!-- User navbar -->
+        <ng-template #userNavbar>
+            <div>
+                <span class="title">Welcome User!</span>
+            </div>
+            <nav>
+                <a class="nav-links" routerLink="/u/dashboard"><span>Dashboard</span></a>
+                <a class="nav-links" routerLink="/u/add-car"><span>Add New Car</span></a>
+                <a class="nav-links" routerLink="/u/bookings"><span>Bookings</span></a>
+            </nav>
+        </ng-template>
+    </ng-template>
 </div>
+
+
+
+<router-outlet></router-outlet>

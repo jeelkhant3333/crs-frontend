@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap'); 
+
 :root {
     --purple-main: #A162F7;
     --white: #ffffff;
+    --black: #1F2128;
     --gray-border: #A5A5A5;
     --gray-text: #5F6165;
     --box-shadow-color: rgba(111, 122, 133, 0.2);
     --body-bg: #f5f5f5;
-    --main-font: "Roboto",sans-serif ;
+    --main-font: "nunito", "Roboto", sans-serif;
+    --title-font: 20px
 }
 
 
@@ -19,5 +23,5 @@ body{
 html, body { height: 100%; }
 body { 
     margin: 0;
-     font-family: var(--main-font)
+    /* font-family: var(--main-font) */
 }

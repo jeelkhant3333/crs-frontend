@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0px 20px;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
@@ -14,8 +14,70 @@
 .title{
     position: relative;
     color: #1F2128;
-    font-family: sans-serif,'Roboto';
-    font-size: 20px;
+    font-family: var(--main-font);
+    font-size: var(--title-font);
     font-weight: bold;
+    letter-spacing: 2px;
    
 }
+
+.nav-links{
+    text-decoration: none;  
+    margin: 0px 10px;
+    color: var(--black);
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  
+    & a {
+      color: var(--black);
+      cursor: pointer;
+      overflow: hidden;
+      transition: 0.3s;
+      position: relative;
+      text-decoration: none;
+  
+      &::before {
+        content: "";
+        scale: 0 1;
+        position: absolute;
+        background: var(--purple-main);
+        transition: 0.3s, translate 0s 0.3s;
+        inset: calc(100% - 3px) 0 0 0;
+      }
+  
+      &:hover {
+        &::before {
+          translate: 0;
+          transition: 0.3s;
+        }
+      }
+    }
+  
+    &:hover {
+      & a::before {
+        scale: 1;
+      }
+  
+      & a:has(~ a:hover)::before {
+        translate: 100% 0;
+        transition: 0.2s 0.2s, scale 0s 0.4s;
+      }
+  
+      & a:hover ~ a::before {
+        translate: -100% 0;
+        transition: 0.2s 0.2s, scale 0s 0.4s;
+      }
+    }
+  }
+
+
+nav span{
+   font-size: 16px;
+   font-family: var(--main-font);
+   font-weight: 600;
+   letter-spacing: 1px;
+}   
