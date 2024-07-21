@@ -31,6 +31,7 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
   
     & a {
       color: var(--black);
@@ -81,3 +82,12 @@ nav span{
    font-weight: 600;
    letter-spacing: 1px;
 }   
+
+
+.search-btn{
+  margin-top: 5px;
+  margin-right: 5px;
+  color: var(--purple-main);
+  
+}
+

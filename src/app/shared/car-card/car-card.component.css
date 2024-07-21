@@ -1,0 +1,73 @@
+.card{
+    background-color: var(--white);
+    height: 250px;
+    width: 300px;
+    margin: 10px 0px;
+    padding: 0px 20px;
+    border-radius: 7%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent; 
+    transition: scale 0.4s ease-in-out, 
+                box-shadow 0.4s ease-in-out, 
+                border-color 0.6s ease-in-out;
+}
+
+.card:hover{
+    scale: 105%;
+    box-shadow: var(--box-shadow-color) 0px 8px 24px;
+    border-color: var(--purple-main);
+}
+
+.recommend{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 10px;
+    color: var(--green);
+}
+
+.car-recommend-text{
+    font-weight: bold;
+    color: #72767C;
+    margin-left: 5px;
+    margin-bottom: 0;
+    color: var(--green);
+}
+
+.car-img{
+    width: inherit;
+    height: 60%;
+    object-fit: cover;
+}
+
+.car-alignment{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.car-name{
+    font-size: var(--title-font);
+    font-weight: bold;
+    
+}
+
+.car-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px;
+    gap: 20px;
+    color: var(--gray-text);
+    font-family: var(--main-font);
+}
+
+
+.car-price{
+    color: var(--green);
+    font-size: var(--title-font);
+    font-weight: bolder;
+    font-family: var(--main-font);
+}

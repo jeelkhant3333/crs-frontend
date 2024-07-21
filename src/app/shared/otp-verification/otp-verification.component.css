@@ -30,25 +30,6 @@
     margin-top: 40px;  
 }
 
-.input, .btn {
-    margin: 10px 0px;
-    border-radius: 3px;
-}
-
-.input {
-    width: 250px;
-    height: 30px;
-    border: 1px solid var(--gray-border);
-    text-indent: 10px;
-}
-
-.input:focus {
-    outline: none;
-    box-shadow: var(--box-shadow-color) 0px 8px 24px;
-    border: 1px solid var(--purple-main);
-}
-
-
 .btn {
     width: 260px;
     height: 35px;

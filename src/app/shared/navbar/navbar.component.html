@@ -21,6 +21,14 @@
                 <span class="title">Welcome Admin!</span>
             </div>
             <nav>
+                <div (click)="openSearch()" class="search-btn">
+                    <mat-icon *ngIf="!search" aria-hidden="false" fontIcon="search"></mat-icon>
+                </div>
+                <div (click)="openSearch()">
+                    <mat-icon *ngIf="search" class="search-btn"
+                    aria-hidden="false" fontIcon="search"></mat-icon>
+                </div>
+                <input *ngIf="search" type="text" placeholder="Search Your Cars" class="input">
                 <a class="nav-links" routerLink="/admin/dashboard"><span>Dashboard</span></a>
                 <a class="nav-links" routerLink="/admin/add-car"><span>Add New Car</span></a>
                 <a class="nav-links" routerLink="/admin/bookings"><span>Bookings</span></a>
