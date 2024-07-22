@@ -1,1 +1,126 @@
-<p>add-car works!</p>
+<!-- 
+    img, => array
+    company => string
+    name, => string
+    color, => string
+    body type, sedan,suv,luxury => dropdown
+    transmition,  =>auto,manual,hybrid => radio
+    year, => number
+    price par hr, => number
+    discription, => string
+    fule, => sting
+    mileage,  => number
+    top speed, =>number
+    
+ -->
+
+<form class="addForm">
+
+
+   <div class="container">
+      <input type="file" #fileInput accept="image/*" multiple (change)="onFileSelected($event)" class="select-button" >
+      <img class="car-img" *ngIf="imageSrc.length>0" [src]="imageSrc[imageSrc.length-1]" alt="Image Preview">
+   </div>
+
+   <!-- Form -->
+   <div class="add-car-grid">
+
+
+      <div class="lable-div">
+         <label>Company</label>
+         <select name="company" id="company" class="input add-input">
+            <option value="audi">Audi</option>
+            <option value="ford">Ford</option>
+            <option value="volvo">Volvo</option>
+            <option value="honda">Honda</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="volkswagen">Volkswagen</option>
+         </select>
+      </div>
+
+
+      <div class="lable-div">
+         <label>Name</label>
+         <input class="input add-input" class="input add-input" placeholder="Enter Car Name" class="input add-input"
+            type="text">
+      </div>
+
+
+      <div class="lable-div">
+         <label>Color</label>
+         <select name="colors" id="colors" class="input add-input">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="silver">Silver</option>
+            <option value="blue">Blue</option>
+         </select>
+      </div>
+
+
+      <div class="lable-div">
+         <label>Body Type</label>
+         <select name="type" id="type" class="input add-input">
+            <option value="sedan">Sedan</option>
+            <option value="sUV">SUV</option>
+            <option value="luxury">Luxury</option>
+         </select>
+      </div>
+
+
+      <div class="lable-div">
+         <label>Transmition</label>
+         <select name="transmition" id="transmition" class="input add-input">
+            <option value="auto">Auto</option>
+            <option value="manual">Manual</option>
+            <option value="hybrid">Hybrid</option>
+         </select>
+      </div>
+
+
+      <div class="lable-div">
+         <label>Model</label>
+         <input class="input add-input" class="input add-input" type="month">
+      </div>
+
+      <div class="lable-div textarea">
+         <label>Description</label>
+         <textarea class="input" class="input add-input" type="text">
+         </textarea>
+      </div>
+
+      <div class="lable-div">
+         <label>Price</label>
+         <input class="input add-input" class="input add-input" placeholder="In Dollers Par Hour" type="number">
+      </div>
+
+      <div class="lable-div">
+         <label>Fuel Type</label>
+         <select name="fuel" id="fuel" class="input add-input">
+            <option value="petrol">Petrol</option>
+            <option value="disel">Disel</option>
+            <option value="electric">Electric</option>
+            <option value="cng">CNG</option>
+         </select>
+      </div>
+
+
+      <div class="lable-div">
+         <label>Mileage</label>
+         <input class="input add-input" class="input add-input" type="number" placeholder="Avg Par Liter">
+      </div>
+
+
+      <div class="lable-div">
+         <label>Top Speed</label>
+         <input class="input add-input" class="input add-input" type="number" placeholder="km/hr">
+      </div>
+
+   </div>
+
+
+   <!-- Buttons -->
+   <div class="form-btn">
+      <button class="reset-info-btn control-btn" type="submit">Reset</button>
+      <button class="save-info-btn control-btn" type="submit">Save</button>
+   </div>
+</form>
