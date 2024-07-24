@@ -14,21 +14,26 @@
     
  -->
 
-<form class="addForm">
-
+<form class="addForm" [formGroup]="addCarForm" (ngSubmit)="submitForm()">
 
    <div class="container">
-      <input type="file" #fileInput accept="image/*" multiple (change)="onFileSelected($event)" class="select-button" >
-      <img class="car-img" *ngIf="imageSrc.length>0" [src]="imageSrc[imageSrc.length-1]" alt="Image Preview">
+      <input type="file" #fileInput accept="image/*" multiple (change)="onFileSelected($event)" class="select-button"
+        >
+      <img class="car-img" *ngIf="imageSrcs.length>0" [src]="imageSrcs[imageSrcs.length-1]" alt="Image Preview">
+      <div
+         *ngIf="isInValid || addCarForm.controls['img'].invalid && (addCarForm.controls['img'].dirty || addCarForm.controls['img'].touched)">
+         <small class="error" *ngIf="addCarForm.controls['img'].hasError('required')">Please select atleast one
+            Image</small>
+      </div>
    </div>
 
    <!-- Form -->
    <div class="add-car-grid">
 
-
+      <!-- company -->
       <div class="lable-div">
          <label>Company</label>
-         <select name="company" id="company" class="input add-input">
+         <select formControlName="company" name="company" id="company" class="input add-input">
             <option value="audi">Audi</option>
             <option value="ford">Ford</option>
             <option value="volvo">Volvo</option>
@@ -36,91 +41,149 @@
             <option value="mercedes">Mercedes</option>
             <option value="volkswagen">Volkswagen</option>
          </select>
+         <div
+            *ngIf="isInValid || addCarForm.controls['company'].invalid && (addCarForm.controls['company'].dirty || addCarForm.controls['company'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['company'].hasError('required')">Please select atleast one
+               Company.</small>
+         </div>
       </div>
 
-
+      <!-- name -->
       <div class="lable-div">
          <label>Name</label>
-         <input class="input add-input" class="input add-input" placeholder="Enter Car Name" class="input add-input"
+         <input formControlName="name" class="input add-input" class="input add-input" placeholder="Enter Car Name"
             type="text">
+         <div
+            *ngIf="isInValid || addCarForm.controls['name'].invalid && (addCarForm.controls['name'].dirty || addCarForm.controls['name'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['name'].hasError('required')">Name is required.</small>
+         </div>
       </div>
 
-
+      <!-- color -->
       <div class="lable-div">
          <label>Color</label>
-         <select name="colors" id="colors" class="input add-input">
+         <select formControlName="color" name="colors" id="colors" class="input add-input">
             <option value="white">White</option>
             <option value="black">Black</option>
             <option value="silver">Silver</option>
             <option value="blue">Blue</option>
          </select>
+            <div
+            *ngIf="isInValid || addCarForm.controls['color'].invalid && (addCarForm.controls['color'].dirty || addCarForm.controls['color'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['color'].hasError('required')">>Please select atleast one Color.</small>
+         </div>
       </div>
 
-
+      <!-- body type -->
       <div class="lable-div">
          <label>Body Type</label>
-         <select name="type" id="type" class="input add-input">
+         <select formControlName="bodyType" name="type" id="type" class="input add-input">
             <option value="sedan">Sedan</option>
-            <option value="sUV">SUV</option>
+            <option value="suv">SUV</option>
             <option value="luxury">Luxury</option>
          </select>
+         <div
+            *ngIf="isInValid || addCarForm.controls['bodyType'].invalid && (addCarForm.controls['bodyType'].dirty || addCarForm.controls['bodyType'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['bodyType'].hasError('required')">Please select atleast one
+               Type.</small>
+         </div>
       </div>
 
-
+      <!-- transmition -->
       <div class="lable-div">
          <label>Transmition</label>
-         <select name="transmition" id="transmition" class="input add-input">
+         <select formControlName="trnsmition" name="transmition" id="transmition" class="input add-input">
             <option value="auto">Auto</option>
             <option value="manual">Manual</option>
             <option value="hybrid">Hybrid</option>
          </select>
+         <div
+            *ngIf="isInValid || addCarForm.controls['bodyType'].invalid && (addCarForm.controls['bodyType'].dirty || addCarForm.controls['bodyType'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['bodyType'].hasError('required')">Please select atleast one
+               Mode.</small>
+         </div>
       </div>
 
-
+      <!-- model -->
       <div class="lable-div">
          <label>Model</label>
-         <input class="input add-input" class="input add-input" type="month">
+         <input formControlName="model" class="input add-input" class="input add-input" type="month">
+         <div
+            *ngIf="isInValid || addCarForm.controls['model'].invalid && (addCarForm.controls['model'].dirty || addCarForm.controls['model'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['model'].hasError('required')">Please select Year &
+               Month.</small>
+         </div>
       </div>
 
+      <!-- description -->
       <div class="lable-div textarea">
          <label>Description</label>
-         <textarea class="input" class="input add-input" type="text">
-         </textarea>
+         <textarea formControlName="description" class="input add-input" rows="5" type="text"></textarea>
+         <div
+            *ngIf="isInValid || addCarForm.controls['description'].invalid && (addCarForm.controls['description'].dirty || addCarForm.controls['description'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['description'].hasError('required')">Description is
+               required.</small>
+         </div>
       </div>
 
+      <!-- price -->
       <div class="lable-div">
          <label>Price</label>
-         <input class="input add-input" class="input add-input" placeholder="In Dollers Par Hour" type="number">
+         <input formControlName="price" class="input add-input" class="input add-input" placeholder="In Dollers Par Hour"
+            type="number">
+         <div
+            *ngIf="isInValid || addCarForm.controls['price'].invalid && (addCarForm.controls['price'].dirty || addCarForm.controls['price'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['price'].hasError('required')">Price is required.</small>
+            <small class="error" *ngIf="addCarForm.controls['price'].hasError('min')">Negative numbers is not valid.</small>
+         </div>
       </div>
 
+      <!-- fule -->
       <div class="lable-div">
          <label>Fuel Type</label>
-         <select name="fuel" id="fuel" class="input add-input">
+         <select formControlName="fuelType" name="fuel" id="fuel" class="input add-input">
             <option value="petrol">Petrol</option>
             <option value="disel">Disel</option>
             <option value="electric">Electric</option>
             <option value="cng">CNG</option>
          </select>
+         <div
+            *ngIf="isInValid || addCarForm.controls['fuelType'].invalid && (addCarForm.controls['fuelType'].dirty || addCarForm.controls['fuelType'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['fuelType'].hasError('required')">Please select atleast one
+               Type.</small>
+         </div>
       </div>
 
-
+      <!-- mileage -->
       <div class="lable-div">
          <label>Mileage</label>
-         <input class="input add-input" class="input add-input" type="number" placeholder="Avg Par Liter">
+         <input formControlName="mileage" class="input add-input" class="input add-input" type="number"
+            placeholder="Avg Par Liter">
+         <div
+            *ngIf="isInValid || addCarForm.controls['mileage'].invalid && (addCarForm.controls['mileage'].dirty || addCarForm.controls['mileage'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['mileage'].hasError('required')">Mileage is required.</small>
+            <small class="error" *ngIf="addCarForm.controls['mileage'].hasError('min')">Negative Numbers or Zero is not valid.</small>
+         </div>
       </div>
 
-
+      <!-- top speed -->
       <div class="lable-div">
          <label>Top Speed</label>
-         <input class="input add-input" class="input add-input" type="number" placeholder="km/hr">
+         <input formControlName="topSpeed" class="input add-input" class="input add-input" type="number"
+            placeholder="km/hr">
+         <div
+            *ngIf="isInValid || addCarForm.controls['topSpeed'].invalid && (addCarForm.controls['topSpeed'].dirty || addCarForm.controls['topSpeed'].touched)">
+            <small class="error" *ngIf="addCarForm.controls['topSpeed'].hasError('required')">Top Speed is
+               required.</small>
+            <small class="error" *ngIf="addCarForm.controls['topSpeed'].hasError('min')">Negative Numbers or Zero is not valid.</small>
+         </div>
       </div>
 
    </div>
 
-
    <!-- Buttons -->
    <div class="form-btn">
-      <button class="reset-info-btn control-btn" type="submit">Reset</button>
+      <button class="reset-info-btn control-btn" type="submit" (click)="resetForm()">Reset</button>
       <button class="save-info-btn control-btn" type="submit">Save</button>
    </div>
 </form>

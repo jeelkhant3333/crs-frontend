@@ -43,6 +43,46 @@ body{
 }
 
 
+.main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    padding: 0;
+}
+
+
+.h1text {
+    font-family: var(--main-font) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    height: 20%;    
+    font-size: 4vw !important;
+}
+
+.login,.register {
+    width: 30vw;
+    padding: 2vw 2vw 0vw 2vw;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.form {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: -webkit-fill-available;
+}
+
+
 .input, .btn {
     margin: 10px 0px;
     border-radius: 3px;
@@ -77,16 +117,22 @@ body{
     scale: 103%;
 }
 
-
-/* ::-webkit-scrollbar{
-   background-color: var(--box-shadow-color);
-   width: 12px;
-   height: 8px;
+.link {
+    text-decoration: none;
+    color: var(--gray-text);
+    margin-top: 1em;
+    font-size: 1.25em;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--purple-main);
-  } */
+.link:hover {
+    scale: 103%;
+}
+
+
+.error {
+    color: red;
+    font-size: var(--default-font);
+}
 
 
 
@@ -103,20 +149,104 @@ body{
 
 
 
-  @media (width<=650px) {
+/* width<=1024px */
+
+@media (width <=1024px) {
+    
+    .login,.register {
+        height: fit-content;
+        width: 30vw;
+    }
+
+    .form {
+        padding: 0vh 2vw;
+    }
+
+    .error {
+        font-size: 2vw;
+    }
+
+    .link{
+        font-size: 2vw;
+    }
+
+}
+
+/* width<=650px */
+@media (width<=650px) {
+     
+    .h1text {
+        font-size: 4vw !important;
+    }
+
     .input,.btn{
         font-size: 2.1vw;
     }
-  }
 
+    .login,.register{
+        /* height: fit-content; */
+        width: 31vw;
+    }
 
-  @media (width<=480px) {
+    .link {
+        font-size: 2vw;
+    }
+
+    .error{
+        font-size: 1.9vw;
+    }
+
+}
+
+/* width<=480px */
+@media (width<=480px) {
+    
+    .h1text {
+        font-size: 4.5vw;
+    }   
+
     .input,.btn{
         font-size: 2.9vw
     }
-  }
-  @media (width<=320px) {
+
+    .login,.register{
+        width: 47vw;
+    }
+
+   
+    .link {
+        font-size: 2.5vw;
+    }
+
+    .error{
+        font-size: 2.1vw;
+    }
+
+}
+
+
+/* width<=320px */
+@media (width<=320px) {
+
+    .h1text {
+        font-size: 6.5vw;
+    }   
+
     .input,.btn{
         font-size: 3.9vw
     }
-  }
+
+    .login,.register{
+        width: 60vw;
+    }
+
+  
+    .link {
+        font-size: 3.5vw;
+    }
+
+    .error{
+        font-size: 3.1vw;
+    }
+
+}
